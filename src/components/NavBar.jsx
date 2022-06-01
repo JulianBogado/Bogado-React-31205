@@ -7,13 +7,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import ChairIcon from '@mui/icons-material/Chair';
-import Badge from '@mui/material/Badge/Badge';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartWidget from './CartWidget';
 
 const pages = ['Decoración', 'Bazar', 'Cocina', 'Contacto'];
 
@@ -118,13 +115,7 @@ const NavBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Carrito">
-            <IconButton aria-label="cart" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
-            </Tooltip>
+            <CartWidget items={5}/>
           </Box>
         </Toolbar>
       </Container>
