@@ -6,7 +6,7 @@ import { Alert, ClickAwayListener, Collapse, Tooltip } from '@mui/material';
 
 function ItemCount({stock, initial, onAdd}) {
     //Contador
-    const [contador, setContador] = useState(1);
+    const [contador, setContador] = useState(initial);
     //Boton que resta
     const [restar, setRestar] = useState(true);
     //Boton que suma
@@ -30,6 +30,9 @@ function ItemCount({stock, initial, onAdd}) {
         setSumar(false);
       }
     }, [contador])
+    const reset = () =>{
+      setContador(initial);
+    }
     
     
     return (
@@ -51,7 +54,7 @@ function ItemCount({stock, initial, onAdd}) {
                   </ClickAwayListener>
             </Stack>
         <Stack>
-            <Button size="medium" variant="outlined">Agregar al carrito</Button>
+            <Button size="medium" variant="outlined" onClick={() => { onAdd(contador); reset() }}>Agregar al carrito</Button>
         </Stack>
         </div>
         </>
