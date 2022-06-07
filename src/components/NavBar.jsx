@@ -26,7 +26,7 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: "#4D4C7D", boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);"}}>
+    <AppBar position="static" style={{backgroundColor: "#4D4C7D", boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <ChairIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

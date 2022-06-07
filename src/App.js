@@ -9,7 +9,7 @@ function App() {
     <>
     <div className="App">
       <NavBar />
-      <ItemListContainer greeting={"Esto es un saludo por props"}/>
+      <ItemListContainer greeting={"Bradim tienda online"}/>
     </div>
     </>
   );
