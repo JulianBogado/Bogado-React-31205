@@ -1,0 +1,8 @@
+.itemDetail{
+    margin: auto;
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+
+    width: 70%;
+}

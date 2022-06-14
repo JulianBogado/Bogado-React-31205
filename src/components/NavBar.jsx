@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import ChairIcon from '@mui/icons-material/Chair';
 import CartWidget from './CartWidget';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 
 const pages = ['Decoración', 'Bazar', 'Cocina', 'Contacto'];
 
@@ -83,6 +84,7 @@ const NavBar = () => {
                 </MenuItem>
               ))}
             </Menu>
+            
           </Box>
           <Typography
             variant="h5"
