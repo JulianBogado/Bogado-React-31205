@@ -31,7 +31,7 @@ export default function ItemDetailContainer() {
       <div>{loading && 'Loading...'}</div>
       <div>{error && 'Hubo un error al cargar el producto'}</div>
       {itemDetail && (itemDetail.map((item) => 
-                <ItemDetail key={itemDetail} id={item.id} title={item.title} description={item.description} price={item.price} pictureUrl={item.pictureUrl} stock={item.stock} />
+                <ItemDetail key={itemDetail} id={item.id} title={item.title} description={item.description} description2={item.description2} price={item.price} pictureUrl={item.pictureUrl} stock={item.stock} />
             ))}
     </div>
   </>

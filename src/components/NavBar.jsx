@@ -13,7 +13,24 @@ import ChairIcon from '@mui/icons-material/Chair';
 import CartWidget from './CartWidget';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 
-const pages = ['Decoración', 'Bazar', 'Cocina', 'Contacto'];
+const pages = [
+  {
+  nombre: 'Decoración',
+  linkto: '/category/deco',
+  },
+  {
+    nombre: 'Bazar',
+    linkto: '/category/bazar',
+  },
+  {
+  nombre: 'Cocina',
+  linkto: '/category/cocina',
+  },
+  {
+    nombre: 'Contacto',
+    linkto: '/category/contacto',
+  },
+  ];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -79,8 +96,10 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.nombre} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                    <Link to={page.linkto}>{page.nombre}</Link>
+                    </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -107,11 +126,11 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.nombre}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link to={page.linkto}>{page.nombre}</Link>
               </Button>
             ))}
           </Box>

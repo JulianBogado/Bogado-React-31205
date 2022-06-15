@@ -1,8 +1,9 @@
-.itemDetail{
-    margin: auto;
-    margin-top: 150px;
-    display: flex;
-    justify-content: space-between;
+.fotoProd{
+    border: 1px solid gray;
+    max-width: 500px;
+}
 
-    width: 70%;
+.divCarrito{
+    display: block;
+    width: fit-content;
 }
