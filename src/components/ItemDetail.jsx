@@ -4,6 +4,8 @@ import ProductosAgegados from "./helpers/ProductosAgregados";
 import "./css-components/itemDetail.css";
 import ItemCount from "./ItemCount";
 import { Container } from "@mui/system";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function ItemDetail({
   id,
@@ -14,9 +16,12 @@ export function ItemDetail({
   pictureUrl,
   stock,
 }) {
+
+  const [unidades, setUnidades] = useState();
   const onAdd = (contador) => {
     <ProductosAgegados contador={contador} />;
     alert(`Se agregaron ${contador} items`);
+    setUnidades(contador);
   };
   return (
     <>
@@ -44,7 +49,7 @@ export function ItemDetail({
                 <p>{description2}</p>
 
                 <div className="divCarrito">
-                  <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+                  {unidades > 0 ? <Link to={'/cart'}> Terminar mi compra </Link> : <ItemCount stock={stock} initial={1} onAdd={onAdd} />}
                   <Typography>
                     <p>Stock disponible: {stock}</p>
                   </Typography>

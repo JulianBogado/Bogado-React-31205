@@ -22,7 +22,7 @@ function ItemCount({ stock, initial, onAdd }) {
   }, [contador]);
 
   useEffect(() => {
-    if (contador == stock) {
+    if (contador === stock) {
       setSumar(true);
       setMensaje(true);
     } else if (contador <= stock) {
