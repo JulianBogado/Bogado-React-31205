@@ -1,28 +1,25 @@
 import React from "react";
 import { Button, Grid, Typography } from "@mui/material";
-import ProductosAgegados from "./helpers/ProductosAgregados";
 import "./css-components/itemDetail.css";
 import ItemCount from "./ItemCount";
 import { Container } from "@mui/system";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContex";
 
-export function ItemDetail({
-  id,
-  title,
-  description,
-  description2,
-  price,
-  pictureUrl,
-  stock,
-}) {
+export function ItemDetail({ item }) {
 
+  const { id, title, description, description2, price, pictureUrl, stock } = item; 
   const [unidades, setUnidades] = useState();
+  const {isInCart, addItem} =useContext(CartContext)
   const onAdd = (contador) => {
-    <ProductosAgegados contador={contador} />;
     alert(`Se agregaron ${contador} items`);
     setUnidades(contador);
+    isInCart(item.id);
+    addItem(item, contador)
   };
+  
   return (
     <>
       <Container>
