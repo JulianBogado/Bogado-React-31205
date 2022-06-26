@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <MyProvider>
           <NavBar />
-          <Home />
+
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />} />

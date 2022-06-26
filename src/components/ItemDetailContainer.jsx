@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail.jsx';
 import Item from './Item.jsx';
+import Loader from './helpers/Loader.jsx';
 
 export default function ItemDetailContainer() {
   const[loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ export default function ItemDetailContainer() {
   return (
   <>
     <div>
-      <div>{loading && 'Loading...'}</div>
+      <div>{loading && <Loader />}</div>
       <div>{error && 'Hubo un error al cargar el producto'}</div>
       {itemDetail && (itemDetail.map((item) => 
                 <ItemDetail key={itemDetail} item={item} />

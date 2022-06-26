@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
+import Home from "./Home";
+import Loader from "./helpers/Loader";
+import { Typography } from "@mui/material";
 
 function ItemListContainer({ category }) {
   const [loading, setLoading] = useState(true);
@@ -14,7 +17,7 @@ function ItemListContainer({ category }) {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
         setError(true);
         setLoading(false);
       })
@@ -25,9 +28,15 @@ function ItemListContainer({ category }) {
 
   return (
     <>
+      <Home />
       <div>
-        <div>{loading && "Loading..."}</div>
-        <div>{error && "No se lograron cargar los productos"}</div>
+        <div>{loading && <Loader />}</div>
+        <div>
+          <Typography align="center" sx={{marginTop:"50px"}}>
+            {error && "No se lograron cargar los productos"}
+          </Typography>
+        </div>
+
         <ItemList items={items} category={category} />
       </div>
     </>
