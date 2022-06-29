@@ -1,15 +1,28 @@
-import logo from './logo.svg';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './components/Home';
 import Cart from './components/Cart';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar';
 import MyProvider from './context/CartContex';
+import { initializeApp } from "firebase/app";
+
+
 
 
 function App() {
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB60vIcd8XnwrUngZyukzTD6uYQ8Cv4424",
+    authDomain: "tienda-online-31205.firebaseapp.com",
+    projectId: "tienda-online-31205",
+    storageBucket: "tienda-online-31205.appspot.com",
+    messagingSenderId: "612125641554",
+    appId: "1:612125641554:web:59d36001e5e3cce057088b"
+  };
+  
+   initializeApp(firebaseConfig);
+
   return (
     <>
       <BrowserRouter>

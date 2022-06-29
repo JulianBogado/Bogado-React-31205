@@ -7,7 +7,7 @@ import "./css-components/itemList.css";
 function ItemList({ items, category }) {
   let filterResult = [];
   if (category != undefined) {
-    filterResult = items.filter((num) => num.category === category);
+    filterResult = items.filter((num) => num.categoryId === category);
   } else {
     filterResult = items;
   }

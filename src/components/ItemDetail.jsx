@@ -10,7 +10,7 @@ import { CartContext } from "../context/CartContex";
 
 export function ItemDetail({ item }) {
 
-  const { id, title, description, description2, price, pictureUrl, stock } = item; 
+  const { id, title, description, description2, price, image, stock } = item; 
   const [unidades, setUnidades] = useState();
   const {isInCart, addItem} =useContext(CartContext)
   const onAdd = (contador) => {
@@ -27,7 +27,7 @@ export function ItemDetail({ item }) {
           <Grid item>
             <img
               className="fotoProd"
-              src={pictureUrl}
+              src={image}
               alt={title}
               max-width="500px"
             />

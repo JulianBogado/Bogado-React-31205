@@ -12,7 +12,7 @@ import ProductosAgegados from "./helpers/ProductosAgregados";
 import { Link, useParams } from "react-router-dom";
 
 export default function Item({ item }) {
-  const { id, title, description, price, pictureUrl, stock } = item;
+  const { id, title, description, price, image, stock } = item;
   return (
     <Grid item xs={2} sm={4} md={3}>
       <Card sx={{ maxWidth: 347, border: "1px solid gray" }}>
@@ -20,7 +20,7 @@ export default function Item({ item }) {
           component="img"
           alt={title}
           height="70%"
-          image={pictureUrl}
+          image={image}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" align="center">
