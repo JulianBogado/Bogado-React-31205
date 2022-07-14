@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import BarLoader from "react-spinners/BarLoader";
 import Home from "./Home";
 import ItemList from "./ItemList";
@@ -10,6 +11,7 @@ function ItemListContainer({ category }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [items, setItems] = useState([]);
+  const { id } = useParams()
 
 
    //firebase
@@ -25,7 +27,7 @@ function ItemListContainer({ category }) {
            setLoading(false)
        })
        
-   }, [])
+   }, [id])
 
   return (
     <>

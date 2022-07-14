@@ -6,6 +6,7 @@ const {Provider} = CartContext;
 
 const MyProvider = ({children}) => {
     const [cart, setCart] = useState([]);
+    
 
     //Metodo Some - ItemDetail - Se va a encargar si existe el producto en el carrito (Retorna booleano)
     const isInCart = (id) => {
@@ -22,7 +23,7 @@ const MyProvider = ({children}) => {
             const findProduct = cart.find(x => x.id === newItem.id);
             const productIndex = cart.indexOf(findProduct);
             const auxArray = [...cart];
-            auxArray[productIndex].unidades += unidades;
+            auxArray[productIndex].unidades + unidades > newItem.stock ? auxArray[productIndex].unidades = newItem.stock : auxArray[productIndex].unidades += unidades
             setCart(auxArray);
 
         } else{
@@ -41,7 +42,10 @@ const MyProvider = ({children}) => {
 
     //Metodo Reduce - CartWidget - Se encarga de retornar el total de todos los productos en el carrito.
     const getItemQty = () => {
-        return cart.reduce((acc, x) => acc += x.unidades, 0);
+        let carrito = cart.reduce((acc, x) => acc += x.unidades, 0);
+
+        return carrito
+        
     }
 
     //Metodo Reduce - Cart - Retorna el precio total del carrito
@@ -49,6 +53,8 @@ const MyProvider = ({children}) => {
     return cart.reduce((acc, x) => acc += x.unidades * x.price, 0);
     }
     return <Provider value={{cart, isInCart, addItem, removeItem, clearCart, getItemPrice, getItemQty}}> {children} </Provider>
+
+
 }
 
 export default MyProvider

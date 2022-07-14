@@ -23,7 +23,7 @@ export default function ItemDetailContainer() {
               setItemDetail({ ...res.data(), id: res.id})
                 setLoading(false)
             } else{
-                console.log('No existe')
+                console.log('No existe', error)
             }
 
     })}, [itemId])
@@ -35,9 +35,7 @@ export default function ItemDetailContainer() {
     <div>
       <div style={{display:"flex", alignContent:"center", justifyContent:"center"}}>{loading && <BarLoader />}</div>
       <div>{error && 'Hubo un error al cargar el producto'}</div>
-      {itemDetail && (itemDetail.map((item) => 
-                <ItemDetail item={item} />
-            ))}
+      {itemDetail && <ItemDetail item={itemDetail} />}
     </div>
   </>
   )

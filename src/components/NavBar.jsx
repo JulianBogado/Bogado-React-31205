@@ -28,7 +28,7 @@ const pages = [
   },
   {
     nombre: 'Contacto',
-    linkto: '/category/contacto',
+    linkto: '/contacto',
   },
   ];
 
@@ -51,8 +51,6 @@ const NavBar = () => {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -62,8 +60,9 @@ const NavBar = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}
-          >
+          ><Link to={'/home'} style={{ textDecoration: 'none', color:'inherit' }}>
             Bradim
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -98,7 +97,7 @@ const NavBar = () => {
               {pages.map((page) => (
                 <MenuItem key={page.nombre} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={page.linkto}>{page.nombre}</Link>
+                    <Link style={{ textDecoration: 'none', color:'inherit' }} to={page.linkto}>{page.nombre}</Link>
                     </Typography>
                 </MenuItem>
               ))}
@@ -108,8 +107,6 @@ const NavBar = () => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -121,7 +118,9 @@ const NavBar = () => {
               textDecoration: 'none',
             }}
           >
+            <Link to={'/home'} style={{ textDecoration: 'none', color:'inherit' }} >
             Bradim
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -130,14 +129,17 @@ const NavBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link to={page.linkto}>{page.nombre}</Link>
+                <Link style={{ textDecoration: 'none', color:'inherit' }} to={page.linkto}>{page.nombre}</Link>
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            <Link style={{ textDecoration: 'none', color:'inherit' }} to={"/cart"} >
             <CartWidget items={5}/>
-          </Box>
+          
+            </Link>
+            </Box>
         </Toolbar>
       </Container>
     </AppBar>

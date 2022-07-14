@@ -3,10 +3,6 @@ import { CartContext } from "../context/CartContex";
 import { useContext } from "react";
 import {
   Button,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
   Typography,
 } from "@mui/material";
 import Table from "@mui/material/Table";
@@ -18,6 +14,10 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
+
 
 export default function Cart() {
   const {
@@ -63,7 +63,7 @@ export default function Cart() {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    <img src={product.pictureUrl} width="70px" />
+                    <img src={product.image} width="70px" />
                   </TableCell>
                   <TableCell align="left">
                     <Link to={`/item/${product.id}`}>{product.title}</Link>
@@ -81,12 +81,23 @@ export default function Cart() {
             </TableBody>
           </Table>
         </TableContainer>
+        <div style={{marginBottom:"5em"}}>
+        <TableRow scope="row" align="right" style={{display:"flex", justifyContent:"center", marginTop:"2em"}}>
+          <Container maxWidth="md" sx={{backgroundColor:"#1976d2", height:"3em", borderRadius:"8px", display:"flex", alignContent:"center",justifyContent:"center"}}>
+          
+          <Box component="span" style={{marginTop:"10px"}}> <Typography color={"white"}> Precio total: ${getItemPrice()}</Typography>
+          </Box>
+          </Container>
+              
+            </TableRow>
   <Typography
   sx={{marginTop:"20px"}}
   align="center">
-    <Button>Finalizar compra</Button>
-    <Button onClick={clearCart}>Vaciar carrito</Button>
+    <Button variant='contained'>
+      <Link style={{ textDecoration: 'none', color:'inherit' }} to={'/checkout'} >Finalizar compra</Link></Button>
+    <Button sx={{ml:2}} variant='outlined' onClick={clearCart}>Vaciar carrito</Button>
   </Typography>
+  </div>
   </div>
       )
       :

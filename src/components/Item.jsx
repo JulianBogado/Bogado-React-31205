@@ -15,11 +15,15 @@ export default function Item({ item }) {
   const { id, title, description, price, image, stock } = item;
   return (
     <Grid item xs={2} sm={4} md={3}>
-      <Card sx={{ maxWidth: 347, border: "1px solid gray" }}>
+      <Card sx={{ height: 640, maxWidth: 347, border: "1px solid gray", boxShadow: "0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22)" }}>
         <CardMedia
+          style={{
+            maxHeight:'fit-content'
+
+          }}
           component="img"
           alt={title}
-          height="70%"
+          height="60%"
           image={image}
         />
         <CardContent>
@@ -36,7 +40,7 @@ export default function Item({ item }) {
           <Grid item xs zeroMinWidth>
             <Typography align="center">
               <Button size="small">
-                <Link to={`/item/${id}`}>Ver Detalle</Link>
+                <Link style={{ fontWeight:'bold', textDecoration: 'none', color:'inherit' }} to={`/item/${id}`}>Ver Detalle</Link>
               </Button>
             </Typography>
           </Grid>

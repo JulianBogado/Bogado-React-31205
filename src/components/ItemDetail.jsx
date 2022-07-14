@@ -7,6 +7,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContex";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export function ItemDetail({ item }) {
 
@@ -14,7 +16,15 @@ export function ItemDetail({ item }) {
   const [unidades, setUnidades] = useState();
   const {isInCart, addItem} =useContext(CartContext)
   const onAdd = (contador) => {
-    alert(`Se agregaron ${contador} items`);
+    toast.success(`Se agregaron ${contador} items`, {
+      position: "top-center",
+      autoClose: 500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
     setUnidades(contador);
     isInCart(item.id);
     addItem(item, contador)
@@ -46,7 +56,8 @@ export function ItemDetail({ item }) {
                 <p>{description2}</p>
 
                 <div className="divCarrito">
-                  {unidades > 0 ? <Link to={'/cart'}> Terminar mi compra </Link> : <ItemCount stock={stock} initial={1} onAdd={onAdd} />}
+                  {unidades > 0 ? <Button variant='outlined' ><Link to={'/cart'} style={{ textDecoration: 'none', color:'inherit' }}> Terminar mi compra </Link></Button> : <ItemCount stock={stock} initial={1} onAdd={onAdd} />}
+                  <ToastContainer style={{marginTop: '5em'}} />
                   <Typography>
                     <p>Stock disponible: {stock}</p>
                   </Typography>

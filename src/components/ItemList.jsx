@@ -1,8 +1,6 @@
 import { Grid } from "@mui/material";
-import React from "react";
-import Item from "./Item";
-import { useState } from "react";
 import "./css-components/itemList.css";
+import Item from "./Item";
 
 function ItemList({ items, category }) {
   let filterResult = [];
@@ -16,6 +14,7 @@ function ItemList({ items, category }) {
     <>
       <div className="divItemList">
         <Grid
+          mb={"5em"}
           container
           spacing={{ xs: 2, md: 1 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
