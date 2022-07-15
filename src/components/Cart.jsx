@@ -29,7 +29,6 @@ export default function Cart() {
     getItemPrice,
     clearCart,
   } = useContext(CartContext);
-  console.log(cart);
   return (
     <>
     <div style={{marginTop:"100px"}}>

@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+
 
 export default function Checkout() {
 

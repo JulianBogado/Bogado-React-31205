@@ -22,9 +22,7 @@ export default function ItemDetailContainer() {
             if (res.exists()) {
               setItemDetail({ ...res.data(), id: res.id})
                 setLoading(false)
-            } else{
-                console.log('No existe', error)
-            }
+            } 
 
     })}, [itemId])
 

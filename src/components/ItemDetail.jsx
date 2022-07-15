@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export function ItemDetail({ item }) {
 
-  const { id, title, description, description2, price, image, stock } = item; 
+  const { title, description2, price, image, stock } = item; 
   const [unidades, setUnidades] = useState();
   const {isInCart, addItem} =useContext(CartContext)
   const onAdd = (contador) => {

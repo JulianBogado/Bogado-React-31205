@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Stack from "@mui/material/Stack";
+import { ClickAwayListener, Tooltip } from "@mui/material";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import React, { useEffect, useState } from "react";
 import "./css-components/ItemCount.css";
-import { Alert, ClickAwayListener, Collapse, Tooltip } from "@mui/material";
 
 function ItemCount({ stock, initial, onAdd }) {
   //Contador
